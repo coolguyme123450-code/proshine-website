@@ -119,51 +119,45 @@ footer{margin-top:3rem;text-align:center;padding:2rem;color:var(--muted);font-si
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const carImg = document.querySelector(".car-hero");
-  document.addEventListener("mousemove", e => {
-    const {innerWidth:w,innerHeight:h} = window;
-    const x = (e.clientX - w/2) / (w/2);
-    const y = (e.clientY - h/2) / (h/2);
-    carImg.style.transform = `translate3d(${x*20}px,${y*20}px,0)`;
-  });
-  document.addEventListener("mouseleave", () => { carImg.style.transform = "translate3d(0,0,0)"; });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {threshold: 0.2});
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
   const form = document.getElementById("bookingForm");
   const popup = document.getElementById("bookingPopup");
 
-  function showPopup(message, success=true){
+  function showPopup(message, success=true) {
     popup.textContent = message;
     popup.style.background = success ? "#00e5ff" : "#ff4c4c";
     popup.style.color = success ? "black" : "white";
     popup.style.opacity = "1";
     popup.style.transform = "translateX(-50%) translateY(0)";
-    setTimeout(()=>{popup.style.opacity="0";popup.style.transform="translateX(-50%) translateY(-20px)";}, 3000);
+    setTimeout(() => {
+      popup.style.opacity = "0";
+      popup.style.transform = "translateX(-50%) translateY(-20px)";
+    }, 3000);
   }
 
-  form.addEventListener("submit", async function(e){
-    e.preventDefault();
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault(); // Prevent page reload
+
     const data = {};
-    new FormData(form).forEach((v,k) => data[k] = v);
+    new FormData(form).forEach((value, key) => data[key] = value);
+
     try {
-      const res = await fetch("YOUR_WEB_APP_URL", {
-  method: "POST",
-  body: JSON.stringify(data),
-  headers: {"Content-Type":"application/json"}
-  });
-      if(res.ok){ showPopup("Booking submitted successfully!", true); form.reset(); }
-      else throw new Error("Submission failed");
-    } catch(err){
-      showPopup("Error submitting booking. Check Web App URL. " + err.message, false);
+      const res = await fetch("https://script.google.com/macros/s/AKfycbw5szv8UQxxPzxqre_619eOOsTb9PJw65qBz6zfLmWA0-Zr3Wnbsam-mTIITa7gKo/exec", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {"Content-Type":"application/json"}
+      });
+
+      const result = await res.json();
+
+      if (res.ok && result.result === "success") {
+        showPopup("Booking submitted successfully!", true);
+        form.reset();
+      } else {
+        throw new Error(result.message || "Submission failed");
+      }
+
+    } catch(err) {
+      showPopup("Error submitting booking: " + err.message, false);
     }
   });
 });
