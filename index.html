@@ -128,7 +128,7 @@ form.addEventListener("submit", async (e) => {
   new FormData(form).forEach((v, k) => data[k] = v);
 
   try {
-    const res = await fetch("https://sheetdb.io/api/v1/abc123", {
+    const res = await fetch("https://sheetdb.io/api/v1/x82mtrw2snbo5", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({ data: Object.fromEntries(new FormData(form)) })
