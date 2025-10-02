@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ProShine Detailing — Premium Auto Care</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
 <style>
 :root {--accent:#00e5ff;--bg:#0a0a0a;--card:#141414;--muted:#bbb;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -25,18 +24,12 @@ p.muted{color:var(--muted);font-size:1.05rem;margin-bottom:1rem;}
 .parallax{perspective:1000px;margin-top:2rem;}
 .car-hero{max-width:600px;width:90%;margin:auto;opacity:0;transform:translateY(40px);animation:fadeInUp 1.2s ease forwards 1s;transition:transform 0.2s ease-out;filter:drop-shadow(0 0 20px rgba(0,229,255,0.6));}
 @keyframes fadeInUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
-
-/* Services */
 .services-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
 .service{background:var(--card);padding:1.5rem;border-radius:16px;box-shadow:0 8px 20px rgba(0,229,255,0.1);transition:transform .4s ease, box-shadow .3s;opacity:1;transform:translateY(0);}
 .service:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(0,229,255,0.3);}
-
-/* Gallery */
 .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;}
 .gallery img{width:100%;display:block;border-radius:12px;object-fit:cover;transition:transform .5s ease,box-shadow .3s;box-shadow:0 0 20px rgba(0,0,0,0.6);}
 .gallery img:hover{transform:scale(1.05);box-shadow:0 0 25px rgba(0,229,255,0.4);}
-
-/* Form */
 form{display:grid;gap:1rem;background:var(--card);padding:2rem;border-radius:16px;box-shadow:0 8px 20px rgba(0,229,255,0.1);}
 input,select,textarea{padding:0.9rem;border:1px solid #333;border-radius:10px;font-size:1rem;background:#0f0f0f;color:white;transition:border .3s;}
 input:focus,select:focus,textarea:focus{border-color:var(--accent);outline:none;}
@@ -67,65 +60,61 @@ footer{margin-top:3rem;text-align:center;padding:2rem;color:var(--muted);font-si
 </section>
 
 <main class="container">
-  <section id="services">
-    <h2 class="section">Our Services</h2>
-    <div class="services-row">
-      <div class="service">
-        <h3>Interior Restore</h3>
-        <p class="muted">Deep vacuum, upholstery & carpet shampoo, stain removal, dashboard & trim cleaning.</p>
-        <p><strong>From $99</strong></p>
-      </div>
-      <div class="service">
-        <h3>Exterior Wash</h3>
-        <p class="muted">Foam wash, hand dry, tire shine, glass cleaning, streak-free finish.</p>
-        <p><strong>From $49</strong></p>
-      </div>
-      <div class="service">
-        <h3>Full Detail Bundle</h3>
-        <p class="muted">Interior + Exterior together at a discounted price. Most Popular!</p>
-        <p><strong>$129</strong></p>
-      </div>
+<section id="services">
+  <h2 class="section">Our Services</h2>
+  <div class="services-row">
+    <div class="service">
+      <h3>Interior Restore</h3>
+      <p class="muted">Deep vacuum, upholstery & carpet shampoo, stain removal, dashboard & trim cleaning.</p>
+      <p><strong>From $99</strong></p>
     </div>
-  </section>
-
-  <section id="gallery">
-    <h2 class="section">Gallery</h2>
-    <div class="gallery fade-in">
-      <img src="./images/car1.jpg" alt="Car interior detailing">
-      <img src="./images/car2.jpg" alt="Car exterior wash">
-      <img src="./images/car3.jpg" alt="Luxury car after detailing">
+    <div class="service">
+      <h3>Exterior Wash</h3>
+      <p class="muted">Foam wash, hand dry, tire shine, glass cleaning, streak-free finish.</p>
+      <p><strong>From $49</strong></p>
     </div>
-  </section>
+    <div class="service">
+      <h3>Full Detail Bundle</h3>
+      <p class="muted">Interior + Exterior together at a discounted price. Most Popular!</p>
+      <p><strong>$129</strong></p>
+    </div>
+  </div>
+</section>
 
-  <section id="contact">
-    <h2 class="section">Book Your Service</h2>
-    <form id="bookingForm">
-      <input name="name" placeholder="Full name" required>
-      <input name="email" type="email" placeholder="Email" required>
-      <input name="phone" placeholder="Phone" required>
-      <input name="make_model" placeholder="Car make & model" required>
+<section id="gallery">
+  <h2 class="section">Gallery</h2>
+  <div class="gallery fade-in">
+    <img src="./images/car1.jpg" alt="Car interior detailing">
+    <img src="./images/car2.jpg" alt="Car exterior wash">
+    <img src="./images/car3.jpg" alt="Luxury car after detailing">
+  </div>
+</section>
 
-      <select name="service" required>
-        <option value="">Select Service</option>
-        <option>Interior Restore</option>
-        <option>Exterior Wash</option>
-        <option>Full Detail Bundle</option>
-      </select>
-
-      <div style="display:flex;gap:.5rem">
-        <input name="date" type="date" required style="flex:1">
-        <input name="time" type="time" required style="width:150px">
-      </div>
-
-      <textarea name="notes" rows="3" placeholder="Notes (optional)"></textarea>
-      <button type="submit">Request Booking</button>
-    </form>
-  </section>
+<section id="contact">
+<h2 class="section">Book Your Service</h2>
+<form id="bookingForm">
+  <input name="name" placeholder="Full name" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <input name="phone" placeholder="Phone" required>
+  <input name="make_model" placeholder="Car make & model" required>
+  <select name="service" required>
+    <option value="">Select Service</option>
+    <option>Interior Restore</option>
+    <option>Exterior Wash</option>
+    <option>Full Detail Bundle</option>
+  </select>
+  <div style="display:flex;gap:.5rem">
+    <input name="date" type="date" required style="flex:1">
+    <input name="time" type="time" required style="width:150px">
+  </div>
+  <textarea name="notes" rows="3" placeholder="Notes (optional)"></textarea>
+  <button type="submit">Request Booking</button>
+</form>
+</section>
 </main>
 
 <footer>© 2025 ProShine Detailing — Premium Auto Care</footer>
 
-<!-- Popup for booking submission -->
 <div id="bookingPopup" style="position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-20px);background:#00e5ff;color:black;padding:1rem 2rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.4);font-weight:600;opacity:0;pointer-events:none;transition:opacity .5s ease, transform .5s ease;z-index:9999;"></div>
 
 <script>
@@ -149,41 +138,28 @@ document.addEventListener("DOMContentLoaded", function() {
   }, {threshold: 0.2});
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Booking form submission
   const form = document.getElementById("bookingForm");
   const popup = document.getElementById("bookingPopup");
 
-  function showPopup(message, success=true) {
+  function showPopup(message, success=true){
     popup.textContent = message;
     popup.style.background = success ? "#00e5ff" : "#ff4c4c";
     popup.style.color = success ? "black" : "white";
     popup.style.opacity = "1";
     popup.style.transform = "translateX(-50%) translateY(0)";
-    setTimeout(() => {
-      popup.style.opacity = "0";
-      popup.style.transform = "translateX(-50%) translateY(-20px)";
-    }, 3000);
+    setTimeout(()=>{popup.style.opacity="0";popup.style.transform="translateX(-50%) translateY(-20px)";}, 3000);
   }
 
-  form.addEventListener("submit", async function(e) {
+  form.addEventListener("submit", async function(e){
     e.preventDefault();
     const data = {};
     new FormData(form).forEach((v,k) => data[k] = v);
     try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbw5szv8UQxxPzxqre_619eOOsTb9PJHJw65qBz6zfLmWA0-Zr3Wnbsam-mTIITa7gKo/exec", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {"Content-Type":"application/json"}
-      });
-      const result = await res.json();
-      if (res.ok && result.result === "success") {
-        showPopup("Booking submitted successfully!", true);
-        form.reset();
-      } else {
-        throw new Error(result.message || "Submission failed");
-      }
-    } catch(err) {
-      showPopup("Error submitting booking: " + err.message, false);
+      const res = await fetch("https://script.google.com/macros/s/AKfycbw5szv8UQxxPzxqre_619eOOsTb9PJHJw65qBz6zfLmWA0-Zr3Wnbsam-mTIITa7gKo/exec", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify(data) });
+      if(res.ok){ showPopup("Booking submitted successfully!", true); form.reset(); }
+      else throw new Error("Submission failed");
+    } catch(err){
+      showPopup("Error submitting booking. Check Web App URL. " + err.message, false);
     }
   });
 });
