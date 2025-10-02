@@ -155,11 +155,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const data = {};
     new FormData(form).forEach((v,k) => data[k] = v);
     try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbw5szv8UQxxPzxqre_619eOOsTb9PJHJw65qBz6zfLmWA0-Zr3Wnbsam-mTIITa7gKo/exec", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {"Content-Type":"application/json"}
-      });
+      const res = await fetch("YOUR_WEB_APP_URL", {
+  method: "POST",
+  body: JSON.stringify(data),
+  headers: {"Content-Type":"application/json"}
+  });
       if(res.ok){ showPopup("Booking submitted successfully!", true); form.reset(); }
       else throw new Error("Submission failed");
     } catch(err){
