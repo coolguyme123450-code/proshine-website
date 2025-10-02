@@ -128,27 +128,24 @@ form.addEventListener("submit", async (e) => {
   new FormData(form).forEach((v, k) => data[k] = v);
 
   try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbxp7VdSUv3Gb05mDiy4h76k5ca4YhuR7wESOBgqIe7rvxsB1g6zUe43YdR53hFXoqrx/exec", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(data)
-    });
-
-    const result = await res.json();
-
-    if (res.ok && result.result === "success") {
-      popup.textContent = "Booking submitted!";
-      popup.style.color = "lime";
-      form.reset();
-    } else {
-      throw new Error(result.message || "Submission failed");
-    }
-  } catch (err) {
-    popup.textContent = "Error: " + err.message;
-    popup.style.color = "red";
-  }
+    const res = await fetch("https://sheetdb.io/api/v1/abc123", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ data: Object.fromEntries(new FormData(form)) })
+})
+.then(res => res.json())
+.then(data => {
+  msg.textContent = "Thanks! Your booking request was sent.";
+  msg.style.color = "lime";
+  msg.style.display = "block";
+  form.reset();
+})
+.catch(err => {
+  msg.textContent = "Error submitting booking.";
+  msg.style.color = "red";
+  msg.style.display = "block";
 });
-</script>
+<script>
 
 </body>
 </html>
