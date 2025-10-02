@@ -100,79 +100,53 @@ footer{margin-top:3rem;text-align:center;padding:2rem;color:var(--muted);font-si
   <section id="contact">
     <h2 class="section">Book Your Service</h2>
     <form id="bookingForm">
-      <input name="name" placeholder="Full name" required>
-      <input name="email" type="email" placeholder="Email" required>
-      <input name="phone" placeholder="Phone" required>
-      <input name="make_model" placeholder="Car make & model" required>
-      <select name="service" required>
-        <option value="">Select Service</option>
-        <option>Interior Restore</option>
-        <option>Exterior Wash</option>
-        <option>Full Detail Bundle</option>
-      </select>
-      <div style="display:flex;gap:.5rem">
-        <input name="date" type="date" required style="flex:1">
-        <input name="time" type="time" required style="width:150px">
-      </div>
-      <textarea name="notes" rows="3" placeholder="Notes (optional)"></textarea>
-      <button type="submit">Request Booking</button>
-    </form>
-  </section>
-</main>
+  <input name="name" placeholder="Full Name" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <input name="phone" placeholder="Phone" required>
+  <input name="make_model" placeholder="Car make & model" required>
+  <select name="service" required>
+    <option value="">Select Service</option>
+    <option>Interior Restore</option>
+    <option>Exterior Wash</option>
+    <option>Full Detail Bundle</option>
+  </select>
+  <input type="date" name="date" required>
+  <input type="time" name="time" required>
+  <textarea name="notes" placeholder="Notes (optional)"></textarea>
+  <button type="submit">Book Now</button>
+</form>
 
-<footer>© 2025 ProShine Detailing — Premium Auto Care</footer>
-
-<div id="bookingPopup" style="position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-20px);background:#00e5ff;color:black;padding:1rem 2rem;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.4);font-weight:600;opacity:0;pointer-events:none;transition:opacity .5s ease, transform .5s ease;z-index:9999;"></div>
+<div id="bookingPopup"></div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  const carImg = document.querySelector(".car-hero");
-  document.addEventListener("mousemove", e => {
-    const {innerWidth:w,innerHeight:h} = window;
-    const x = (e.clientX - w/2) / (w/2);
-    const y = (e.clientY - h/2) / (h/2);
-    carImg.style.transform = `translate3d(${x*20}px,${y*20}px,0)`;
-  });
-  document.addEventListener("mouseleave", () => { carImg.style.transform = "translate3d(0,0,0)"; });
+const form = document.getElementById("bookingForm");
+const popup = document.getElementById("bookingPopup");
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = {};
+  new FormData(form).forEach((v, k) => data[k] = v);
+
+  try {
+    const res = await fetch("YOUR_WEB_APP_URL", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
     });
-  }, {threshold: 0.2});
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Booking form submission
-  const form = document.getElementById("bookingForm");
-  const popup = document.getElementById("bookingPopup");
+    const result = await res.json();
 
-  function showPopup(message, success=true) {
-    popup.textContent = message;
-    popup.style.background = success ? "#00e5ff" : "#ff4c4c";
-    popup.style.color = success ? "black" : "white";
-    popup.style.opacity = "1";
-    popup.style.transform = "translateX(-50%) translateY(0)";
-    setTimeout(() => {
-      popup.style.opacity = "0";
-      popup.style.transform = "translateX(-50%) translateY(-20px)";
-    }, 3000);
+    if (res.ok && result.result === "success") {
+      popup.textContent = "Booking submitted!";
+      popup.style.color = "lime";
+      form.reset();
+    } else {
+      throw new Error(result.message || "Submission failed");
+    }
+  } catch (err) {
+    popup.textContent = "Error: " + err.message;
+    popup.style.color = "red";
   }
-
-  form.addEventListener("submit", async function(e) {
-    e.preventDefault();
-    const data = {};
-    new FormData(form).forEach((v,k) => data[k] = v);
-    try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbxp7VdSUv3Gb05mDiy4h76k5ca4YhuR7wESOBgqIe7rvxsB1g6zUe43YdR53hFXoqrx/exec", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {"Content-Type":"application/json"}
-      });
-      const result = await res.json();
-      if (res.ok && result.result === "success") {showPopup("Booking submitted successfully!", true);form.reset();}
-      else {throw new Error(result.message || "Submission failed");}
-    } catch(err) {showPopup("Error submitting booking: " + err.message, false);}
-  });
 });
 </script>
 
