@@ -1019,9 +1019,17 @@
         }
 
         // Handle booking form submission
-        function handleBooking(event) {
-            event.preventDefault();
-            
+       function handleBooking(event){
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const bookingData = Object.fromEntries(formData);
+
+  postToSheet(bookingData);   // ← ADD THIS LINE
+
+  alert('Thank you for your booking! We will contact you within 24 hours to confirm your appointment.');
+  event.target.reset();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
             // Get form data
             const formData = new FormData(event.target);
             const bookingData = Object.fromEntries(formData);
