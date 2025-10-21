@@ -3,1146 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Auto Detailing - Premium Car Care Services</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Elite Auto Detailing – Foam-Cannon & Ceramic Specialists</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #c9a961;
-            --accent-color: #ffffff;
-            --text-dark: #333333;
-            --text-light: #666666;
-            --bg-light: #f8f8f8;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(26, 26, 26, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--secondary-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary-color);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        #home {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--accent-color);
-        }
-
-        .hero-content {
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
-        }
-
-        /* Services Section */
-        #services {
-            padding: 5rem 5%;
-            background: var(--bg-light);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--secondary-color);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background: var(--accent-color);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: var(--transition);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .service-card:hover::before {
-            left: 100%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-
-        .price {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--secondary-color);
-        }
-
-        /* Booking Section */
-        #booking {
-            padding: 5rem 5%;
-            background: var(--primary-color);
-            color: var(--accent-color);
-        }
-
-        .booking-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .booking-form {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--text-dark);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px var(--secondary-color);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            border: none;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .submit-btn:hover {
-            background: #b8954a;
-            transform: translateY(-2px);
-        }
-
-        /* Gallery Section */
-        #gallery {
-            padding: 5rem 5%;
-            background: var(--bg-light);
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 250px;
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            opacity: 1;
-        }
-
-        .gallery-overlay i {
-            font-size: 3rem;
-            color: var(--secondary-color);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-color);
-            color: var(--accent-color);
-            padding: 3rem 5%;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: var(--accent-color);
-            font-size: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-content {
-            position: relative;
-            margin: 5% auto;
-            padding: 2rem;
-            width: 90%;
-            max-width: 600px;
-            background: var(--accent-color);
-            border-radius: 15px;
-            animation: slideIn 0.3s ease;
-        }
-
-        .close {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: var(--transition);
-        }
-
-        .close:hover {
-            color: var(--primary-color);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* NEW: Before/After Slider */
-        .before-after {
-            padding: 2rem 0;
-        }
-        .slider-container {
-            position: relative;
-            max-width: 600px;
-            margin: 2rem auto;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-        .slider-image {
-            width: 100%;
-            display: block;
-        }
-        .slider-divider {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: 100%;
-            background: var(--secondary-color);
-            cursor: ew-resize;
-        }
-        .slider-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background: var(--secondary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
-            pointer-events: none;
-        }
-
-        /* NEW: Fleet Page */
-        .fleet-section {
-            background: var(--bg-light);
-            padding: 3rem 5%;
-            text-align: center;
-        }
-        .fleet-badge {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: bold;
-            margin-top: 1rem;
-        }
-
-        /* NEW: Gift Card Page */
-        .gift-card-section {
-            background: var(--primary-color);
-            color: var(--accent-color);
-            padding: 3rem 5%;
-            text-align: center;
-        }
-        .gift-card-button {
-            background: var(--secondary-color);
-            color: var(--primary-color);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .gift-card-button:hover {
-            background: #b8954a;
-            transform: translateY(-2px);
-        }
-
-        /* NEW: FAQ Section */
-        .faq-section {
-            padding: 3rem 5%;
-            background: var(--bg-light);
-        }
-        .faq-item {
-            max-width: 800px;
-            margin: 0 auto 1.5rem;
-            background: var(--accent-color);
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .faq-question {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        .faq-answer {
-            color: var(--text-light);
-        }
-
-        /* NEW: Google Reviews Carousel */
-        .reviews-section {
-            padding: 3rem 5%;
-            background: var(--bg-light);
-            text-align: center;
-        }
-        .reviews-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .review-item {
-            background: var(--accent-color);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 1rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .review-stars {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-        .review-text {
-            color: var(--text-dark);
-            font-style: italic;
-        }
-        .review-author {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-        }
+        :root{--primary:#1a1a1a;--gold:#c9a961;--white:#fff;--light:#f8f8f8;--trans:all .3s ease}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+        body{line-height:1.6;color:var(--primary)}a{text-decoration:none;color:inherit}
+        header{position:fixed;top:0;width:100%;background:rgba(26,26,26,.95);backdrop-filter:blur(10px);z-index:1000;transition:var(--trans)}
+        nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;max-width:1200px;margin:auto}
+        .logo{font-size:1.8rem;font-weight:bold;color:var(--gold)}.nav-links{display:flex;gap:2rem;list-style:none;color:var(--white)}
+        .hero{height:100vh;background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),url(https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80) center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--white)}
+        .hero-content h1{font-size:3rem;margin-bottom:1rem}.hero-content p{font-size:1.3rem;margin-bottom:2rem}
+        .cta-button{display:inline-block;padding:1rem 2rem;background:var(--gold);color:var(--primary);border-radius:50px;font-weight:bold;transition:var(--trans)}
+        .section-title{text-align:center;font-size:2.2rem;margin-bottom:2rem;position:relative}.section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:80px;height:3px;background:var(--gold)}
+        .services{padding:4rem 5%;background:var(--light)}.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:auto}
+        .service-card{background:var(--white);padding:2rem;border-radius:15px;box-shadow:0 5px 20px rgba(0,0,0,.1);transition:var(--trans);cursor:pointer}
+        .service-card:hover{transform:translateY(-10px);box-shadow:0 15px 40px rgba(0,0,0,.2)}.service-icon{font-size:2.5rem;color:var(--gold);margin-bottom:1rem}
+        .price{font-size:1.4rem;font-weight:bold;color:var(--gold);margin-top:1rem}.badge{display:inline-block;background:var(--gold);color:var(--primary);padding:.3rem .8rem;border-radius:20px;font-size:.75rem;margin-top:.5rem}
+        .booking{padding:4rem 5%;background:var(--primary);color:var(--white)}.booking-form{max-width:600px;margin:auto;background:rgba(255,255,255,.1);padding:2rem;border-radius:15px;backdrop-filter:blur(10px)}
+        .form-group{margin-bottom:1.5rem}label{display:block;margin-bottom:.5rem;font-weight:bold}input,select,textarea{width:100%;padding:1rem;border:none;border-radius:8px;background:rgba(255,255,255,.9);color:var(--primary);font-size:1rem}
+        .submit-btn{width:100%;padding:1rem;background:var(--gold);color:var(--primary);border:none;border-radius:8px;font-size:1.2rem;font-weight:bold;cursor:pointer;transition:var(--trans)}
+        .submit-btn:hover{background:#b8954a;transform:translateY(-2px)}.fleet-section,.gift-card-section,.faq-section,.reviews-section{padding:4rem 5%;text-align:center}
+        .fleet-section{background:var(--light)}.gift-card-section{background:var(--primary);color:var(--white)}.faq-item{max-width:800px;margin:1rem auto;background:var(--white);padding:1.5rem;border-radius:10px;text-align:left;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+        .faq-question{font-weight:bold;color:var(--primary);margin-bottom:.5rem}.review-item{max-width:600px;margin:1rem auto;background:var(--white);padding:1.5rem;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+        .review-stars{color:var(--gold);margin-bottom:.5rem}footer{background:var(--primary);color:var(--white);text-align:center;padding:2rem 5%}
+        .social-links{display:flex;justify-content:center;gap:1rem;margin-top:1rem}.social-links a{font-size:1.5rem;transition:var(--trans)}.social-links a:hover{color:var(--gold)}
+        .modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.8)}.modal-content{position:relative;margin:5% auto;padding:2rem;width:90%;max-width:500px;background:var(--white);border-radius:15px}
+        .close{position:absolute;top:1rem;right:1rem;font-size:2rem;cursor:pointer}#giftCardModal{text-align:center}@media(max-width:768px){.nav-links{display:none}.hero-content h1{font-size:2rem}}
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="#" class="logo"><i class="fas fa-car"></i> Elite Detail</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#booking">Book Now</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#fleet">Fleet</a></li>
-                <li><a href="#gift-cards">Gift Cards</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Elite Auto Detailing</h1>
-            <p>Transform Your Vehicle to Showroom Perfection</p>
-            <a href="#booking" class="cta-button">Book Your Detail Now</a>
-        </div>
-    </section>
+<!-- HEADER -->
+<header>
+    <nav>
+        <a href="#" class="logo"><i class="fas fa-car"></i> Elite Detail</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#booking">Book Now</a></li>
+            <li><a href="#gallery">Gallery</a></li><li><a href="#fleet">Fleet</a></li><li><a href="#gift-cards">Gift Cards</a></li><li><a href="#faq">FAQ</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <h2 class="section-title">Our Premium Services</h2>
-        <div class="services-grid">
-            <div class="service-card" onclick="openServiceModal('basic-exterior')">
-                <div class="service-icon"><i class="fas fa-car-wash"></i></div>
-                <h3>Basic Exterior</h3>
-                <p>Hand wash, foam cannon pre-soak, wheels cleaned & dressed, glass wipe, spray wax/sealant</p>
-                <div class="price">Sedan $75 | SUV $85 | Truck $80</div>
-            </div>
-            
-            <div class="service-card" onclick="openServiceModal('basic-interior')">
-                <div class="service-icon"><i class="fas fa-couch"></i></div>
-                <h3>Basic Interior</h3>
-                <p>Full vacuum, dash/console/door panels wiped, interior glass cleaned, door-jamb wipe</p>
-                <div class="price">Sedan $75 | SUV $85 | Truck $80</div>
-            </div>
-            
-            <div class="service-card" onclick="openServiceModal('combo')">
-                <div class="service-icon"><i class="fas fa-sparkles"></i></div>
-                <h3>Combo</h3>
-                <p>Everything in Basic Exterior + Basic Interior</p>
-                <div class="price">Sedan $135 | SUV $155 | Truck $145</div>
-            </div>
-            
-            <div class="service-card" onclick="openServiceModal('vip')">
-                <div class="service-icon"><i class="fas fa-crown"></i></div>
-                <h3>VIP</h3>
-                <p>6-month ceramic coating, engine bay detail, rain repellent, deep vacuum & wipe-down</p>
-                <div class="price">Sedan $225 | SUV $255 | Truck $240</div>
-                <div class="fleet-badge">6-month ceramic protection guarantee</div>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Foam-Cannon & Ceramic Specialists</h1>
+        <p>Always-ready shine, zero hassle — book in 30 seconds</p>
+        <a href="#booking" class="cta-button">Book Your Slot Now</a>
+    </div>
+</section>
 
-    <!-- Before/After Slider -->
-    <section class="before-after">
-        <h2 class="section-title">See The Transformation</h2>
-        <div class="slider-container">
-            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Before" class="slider-image">
-            <div class="slider-divider"></div>
-            <div class="slider-button"><i class="fas fa-arrows-alt-h"></i></div>
+<!-- SERVICES -->
+<section id="services" class="services">
+    <h2 class="section-title">Package Menu</h2>
+    <div class="services-grid">
+        <div class="service-card" onclick="openModal('basic-exterior')">
+            <div class="service-icon"><i class="fas fa-car-wash"></i></div>
+            <h3>Basic Exterior</h3>
+            <p>Foam-cannon pre-soak, hand wash & dry, wheels dressed, glass, spray wax</p>
+            <div class="price">Sedan $75 | SUV $85 | Truck $80</div>
         </div>
-    </section>
-
-    <!-- Fleet Section -->
-    <section id="fleet" class="fleet-section">
-        <h2 class="section-title">Fleet & Office Parks</h2>
-        <p>5+ vehicles = 10% off each + monthly on-site service day</p>
-        <a href="#booking" class="cta-button">Schedule Fleet Service</a>
-    </section>
-
-    <!-- Gift Cards Section -->
-    <section id="gift-cards" class="gift-card-section">
-        <h2 class="section-title">Gift Cards</h2>
-        <p>Perfect gift for any car lover - digital delivery in minutes</p>
-        <button class="gift-card-button" onclick="openGiftCardModal()">Buy Gift Card</button>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="faq-section">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <div class="faq-question">How long does the VIP package take?</div>
-            <div class="faq-answer">3-3.5 hours for a sedan, 3.5-4 hours for SUV/truck</div>
+        <div class="service-card" onclick="openModal('basic-interior')">
+            <div class="service-icon"><i class="fas fa-couch"></i></div>
+            <h3>Basic Interior</h3>
+            <p>Full vacuum, dash/console wipe, interior glass, door jambs</p>
+            <div class="price">Sedan $75 | SUV $85 | Truck $80</div>
         </div>
-        <div class="faq-item">
-            <div class="faq-question">Do you need my hose or power?</div>
-            <div class="faq-answer">No, we bring everything needed - water, power, and all equipment</div>
+        <div class="service-card" onclick="openModal('combo')">
+            <div class="service-icon"><i class="fas fa-sparkles"></i></div>
+            <h3>Combo</h3>
+            <p>Both Basic Exterior + Basic Interior in one visit</p>
+            <div class="price">Sedan $135 | SUV $155 | Truck $145</div>
         </div>
-        <div class="faq-item">
-            <div class="faq-question">How long does the ceramic coating last?</div>
-            <div class="faq-answer">Our VIP ceramic coating comes with a 6-month protection guarantee</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">Do you come to my office?</div>
-            <div class="faq-answer">Yes! We service office parks and offer fleet discounts for 5+ vehicles</div>
-        </div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section id="reviews" class="reviews-section">
-        <h2 class="section-title">What Our Customers Say</h2>
-        <div class="reviews-container">
-            <div class="review-item">
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">"Best detail I've ever had! My car looks brand new."</div>
-                <div class="review-author">- Sarah M.</div>
-            </div>
-            <div class="review-item">
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">"Professional, on-time, and incredible attention to detail."</div>
-                <div class="review-author">- Mike R.</div>
-            </div>
-            <div class="review-item">
-                <div class="review-stars">★★★★★</div>
-                <div class="review-text">"The ceramic coating is amazing - water just beads off!"</div>
-                <div class="review-author">- Jennifer L.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Section -->
-    <section id="booking" class="booking">
-        <div class="booking-container">
-            <h2 class="section-title" style="color: white;">Book Your Appointment</h2>
-            <form class="booking-form" onsubmit="handleBooking(event)">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="service">Select Service</label>
-                    <select id="service" name="service" required>
-                        <option value="">Choose a service...</option>
-                        <option value="basic-exterior">Basic Exterior</option>
-                        <option value="basic-interior">Basic Interior</option>
-                        <option value="combo">Combo</option>
-                        <option value="vip">VIP</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="vehicle-type">Vehicle Type</label>
-                    <select id="vehicle-type" name="vehicle-type" required>
-                        <option value="">Select vehicle...</option>
-                        <option value="sedan">Sedan</option>
-                        <option value="suv">SUV</option>
-                        <option value="truck">Truck</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="date">Preferred Date</label>
-                    <input type="date" id="date" name="date" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="time">Preferred Time</label>
-                    <select id="time" name="time" required>
-                        <option value="">Select time...</option>
-                        <option value="9:00 AM">9:00 AM</option>
-                        <option value="10:30 AM">10:30 AM</option>
-                        <option value="12:00 PM">12:00 PM</option>
-                        <option value="1:30 PM">1:30 PM</option>
-                        <option value="3:00 PM">3:00 PM</option>
-                        <option value="4:30 PM">4:30 PM</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="car-model">Car Make & Model</label>
-                    <input type="text" id="car-model" name="car-model" placeholder="e.g., 2020 Honda Civic" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="notes">Additional Notes</label>
-                    <textarea id="notes" name="notes" rows="3" placeholder="Any special requirements or concerns..."></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Book Appointment</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <h2 class="section-title">Our Work</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item" onclick="openImage('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">
-                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Car detailing work">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item" onclick="openImage('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">
-                <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Car detailing work">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item" onclick="openImage('https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">
-                <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Car detailing work">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item" onclick="openImage('https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">
-                <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Car detailing work">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item" onclick="openImage('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">
-                <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Car detailing work">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-            <div class="gallery-item" onclick="openImage('https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')">
-                <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Car detailing work">
-                <div class="gallery-overlay">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Main St, City, State 12345</p>
-                <p><i class="fas fa-phone"></i> (435)-619-6385</p>
-                <p><i class="fas fa-envelope"></i> info@eliteautodetailing.com</p>
-            </div>
-            <div class="footer-section">
-                <h3>Hours</h3>
-                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                <p>Saturday: 9:00 AM - 4:00 PM</p>
-                <p>Sunday: By appointment only</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        <p>&copy; 2024 Elite Auto Detailing. All rights reserved.</p>
-    </footer>
-
-    <!-- Service Modal -->
-    <div id="serviceModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeServiceModal()">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <div id="modalContent"></div>
-            <button class="cta-button" style="margin-top: 1rem;" onclick="bookService()">Book This Service</button>
+        <div class="service-card" onclick="openModal('vip')">
+            <div class="service-icon"><i class="fas fa-crown"></i></div>
+            <h3>VIP</h3>
+            <p>Foam cannon, 6-mo ceramic by hand, engine bay, rain repellent, deep vacuum</p>
+            <div class="price">Sedan $225 | SUV $255 | Truck $240</div>
+            <span class="badge">6-month ceramic guarantee</span>
         </div>
     </div>
+</section>
 
-    <!-- Image Modal -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content" style="max-width: 90%; max-height: 90%;">
-            <span class="close" onclick="closeImageModal()" style="position: absolute; top: 10px; right: 20px; color: white; font-size: 3rem;">&times;</span>
-            <img id="modalImage" style="width: 100%; height: auto; border-radius: 10px;">
-        </div>
+<!-- BEFORE / AFTER -->
+<section id="gallery" style="padding:3rem 5%;background:var(--light)">
+    <h2 class="section-title">Before & After</h2>
+    <div style="max-width:700px;margin:auto;position:relative;border-radius:10px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.2)">
+        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=70" style="width:100%;display:block">
+        <div style="position:absolute;top:0;left:50%;width:4px;height:100%;background:var(--gold);cursor:ew-resize" id="divider"></div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff"><i class="fas fa-arrows-alt-h"></i></div>
     </div>
+</section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+<!-- FLEET -->
+<section id="fleet" class="fleet-section">
+    <h2 class="section-title">Fleet & Office Parks</h2>
+    <p>5+ cars = 10% off each · We come to your parking lot on a set day every month</p>
+    <a href="#booking" class="cta-button">Book Fleet Day</a>
+</section>
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(26, 26, 26, 0.98)';
-            } else {
-                header.style.background = 'rgba(26, 26, 26, 0.95)';
-            }
-        });
+<!-- GIFT CARDS -->
+<section id="gift-cards" class="gift-card-section">
+    <h2 class="section-title">Gift Cards</h2>
+    <p>Digital voucher delivered in minutes - perfect for any car lover</p>
+    <button class="cta-button" onclick="buyGiftCard()">Buy Gift Card</button>
+</section>
 
-        // Service details
-        const serviceDetails = {
-            'basic-exterior': {
-                title: 'Basic Exterior Package',
-                content: `
-                    <h3>What's Included:</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Foam-cannon pre-soak + hand wash, rinse, dry</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Wheels & tyres cleaned + dressed</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Exterior glass wipe</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Spray wax / sealant</li>
-                    </ul>
-                    <p style="margin-top: 1rem;"><strong>Duration:</strong> 1-1.5 hours</p>
-                    <p><strong>6-month ceramic protection guarantee on VIP package only</strong></p>
-                `
-            },
-            'basic-interior': {
-                title: 'Basic Interior Package',
-                content: `
-                    <h3>What's Included:</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Full vacuum (carpets, seats, trunk)</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Dash, console, door panels wiped</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Interior glass cleaned</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Door-jamb wipe</li>
-                    </ul>
-                    <p style="margin-top: 1rem;"><strong>Duration:</strong> 1 hour</p>
-                `
-            },
-            'combo': {
-                title: 'Combo Package',
-                content: `
-                    <h3>What's Included:</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Everything in Basic Exterior</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Everything in Basic Interior</li>
-                    </ul>
-                    <p style="margin-top: 1rem;"><strong>Duration:</strong> 2 hours</p>
-                `
-            },
-            'vip': {
-                title: 'VIP Package',
-                content: `
-                    <h3>What's Included:</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Foam-cannon pre-wash</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> 6-month ceramic coating (microfiber applicator)</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Interior deep vacuum & wipe-down</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Engine bay rinse & dress</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Exhaust-tip hand polish</li>
-                        <li><i class="fas fa-check" style="color: #c9a961; margin-right: 10px;"></i> Windshield rain repellent</li>
-                    </ul>
-                    <p style="margin-top: 1rem;"><strong>Duration:</strong> 3-4 hours (depending on vehicle size)</p>
-                    <p><strong>6-month ceramic protection guarantee</strong></p>
-                `
-            }
-        };
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-item"><div class="faq-question">How long does VIP take?</div><div class="faq-answer">3-3.5 h sedan / 3.5-4 h SUV/truck</div></div>
+    <div class="faq-item"><div class="faq-question">Do you need my hose or power?</div><div class="faq-answer">No - we bring water, power & all tools</div></div>
+    <div class="faq-item"><div class="faq-question">How long will ceramic last?</div><div class="faq-answer">VIP includes 6-month guarantee (top-up available any time)</div></div>
+    <div class="faq-item"><div class="faq-question">Can I pause my membership?</div><div class="faq-answer">Yes - one-click pause for up to 4 weeks</div></div>
+</section>
 
-        // Modal functions
-        function openServiceModal(service) {
-            const modal = document.getElementById('serviceModal');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalContent = document.getElementById('modalContent');
-            
-            modalTitle.textContent = serviceDetails[service].title;
-            modalContent.innerHTML = serviceDetails[service].content;
-            modal.style.display = 'block';
-            
-            // Store selected service for booking
-            localStorage.setItem('selectedService', service);
-        }
+<!-- REVIEWS -->
+<section id="reviews" class="reviews-section">
+    <h2 class="section-title">Customer Reviews</h2>
+    <div class="review-item"><div class="review-stars">★★★★★</div><div class="review-text">"Best detail I've ever had! My car looks brand new."</div><div class="review-author">- Sarah M.</div></div>
+    <div class="review-item"><div class="review-stars">★★★★★</div><div class="review-text">"Professional, on-time, and incredible attention to detail."</div><div class="review-author">- Mike R.</div></div>
+</section>
 
-        function closeServiceModal() {
-            document.getElementById('serviceModal').style.display = 'none';
-        }
+<!-- BOOKING -->
+<section id="booking" class="booking">
+    <h2 class="section-title" style="color:white">Book Now – Pick Your Time</h2>
+    <form class="booking-form" onsubmit="handleBooking(event)">
+        <div class="form-group"><label>Full Name</label><input name="name" required></div>
+        <div class="form-group"><label>Phone</label><input name="phone" required></div>
+        <div class="form-group"><label>Email</label><input name="email" required></div>
+        <div class="form-group"><label>Service</label>
+            <select name="service" required>
+                <option value="">Choose...</option>
+                <option>Basic Exterior</option><option>Basic Interior</option><option>Combo</option><option>VIP</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Vehicle Type</label>
+            <select name="vehicle_type" required>
+                <option value="">Select...</option><option>Sedan</option><option>SUV</option><option>Truck</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Car Make & Model</label><input name="car_model" required></div>
+        <div class="form-group"><label>Preferred Date</label><input type="date" name="date" required></div>
+        <div class="form-group"><label>Preferred Time</label>
+            <select name="time" required>
+                <option value="">Select...</option><option>9:00 AM</option><option>10:30 AM</option><option>12:00 PM</option><option>1:30 PM</option><option>3:00 PM</option><option>4:30 PM</option>
+            </select>
+        </div>
+        <div class="form-group"><label>Notes (optional)</label><textarea name="notes" rows="3"></textarea></div>
+        <button type="submit" class="submit-btn">Book Appointment</button>
+    </form>
+</section>
 
-        function bookService() {
-            closeServiceModal();
-            document.querySelector('#booking').scrollIntoView({ behavior: 'smooth' });
-            
-            // Set the service in the form
-            const selectedService = localStorage.getItem('selectedService');
-            if (selectedService) {
-                document.getElementById('service').value = selectedService;
-            }
-        }
+<!-- FOOTER -->
+<footer id="contact">
+    <h3>Elite Auto Detailing</h3>
+    <p>123 Main St, City, ST 12345 &nbsp; | &nbsp; (555) 123-4567 &nbsp; | &nbsp; info@eliteautodetailing.com</p>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+    <p style="margin-top:1rem;font-size:.8rem">© 2024 Elite Auto Detailing | 6-month ceramic protection guarantee on VIP package</p>
+</footer>
 
-        function openImage(src) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            modalImage.src = src;
-            modal.style.display = 'block';
-        }
+<!-- MODALS -->
+<div id="serviceModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2><div id="modalBody"></div><button class="cta-button" onclick="closeModal();document.querySelector('#booking').scrollIntoView({behavior:'smooth'})">Book This Package</button>
+</div></div>
 
-        function closeImageModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
+<!-- JAVASCRIPT -->
+<script>
+/* ----------  UTILS  ---------- */
+const sheetKey = 'YOUR_SHEETDB_KEY';          // <--- paste SheetDB key here
+const sheetURL = 'https://sheetdb.io/api/v1/x82mtrw2snbo5' + sheetKey;
 
-        function openGiftCardModal() {
-            alert('Gift card purchase coming soon! Contact us at (435)-619-6385 to purchase over the phone.');
-        }
+/* ----------  MODAL  ---------- */
+const modal = document.getElementById('serviceModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalBody = document.getElementById('modalBody');
+const packages = {
+    'basic-exterior': {title:'Basic Exterior',html:'<ul><li>Foam-cannon pre-soak + hand wash & dry</li><li>Wheels & tyres cleaned / dressed</li><li>Exterior glass wipe</li><li>Spray wax / sealant</li></ul><p><strong>Time:</strong> 1 – 1.5 h</p>'},
+    'basic-interior': {title:'Basic Interior',html:'<ul><li>Full vacuum (carpets, seats, trunk)</li><li>Dash, console, door panels wiped</li><li>Interior glass cleaned</li><li>Door-jamb wipe</li></ul><p><strong>Time:</strong> 1 h</p>'},
+    'combo': {title:'Combo',html:'<ul><li>Basic Exterior <strong>+</strong> Basic Interior</li></ul><p><strong>Time:</strong> 2 h</p>'},
+    'vip': {title:'VIP Package',html:'<ul><li>Foam-cannon pre-wash</li><li>6-month ceramic coating (microfiber applicator)</li><li>Interior deep vacuum & wipe-down</li><li>Engine bay rinse & dress</li><li>Exhaust-tip hand polish</li><li>Windshield rain repellent</li></ul><p><strong>Time:</strong> 3 – 4 h (size dependent)</p><p><strong>6-month ceramic protection guarantee</strong></p>'}
+};
+function openModal(p){modalTitle.textContent=packages[p].title;modalBody.innerHTML=packages[p].html;modal.style.display='block';}
+function closeModal(){modal.style.display='none';}
+window.onclick = e => {if(e.target==modal)closeModal()}
 
-        // Handle booking form submission
-       function handleBooking(event){
-  event.preventDefault();
-  const formData = new FormData(event.target);
-  const bookingData = Object.fromEntries(formData);
-
-  postToSheet(bookingData);   // ← ADD THIS LINE
-
-  alert('Thank you for your booking! We will contact you within 24 hours to confirm your appointment.');
-  event.target.reset();
-  window.scrollTo({top:0, behavior:'smooth'});
+/* ----------  BOOKING FORM → SHEETDB  ---------- */
+async function handleBooking(e){
+    e.preventDefault();
+    const f = e.target, d = new FormData(f), o = Object.fromEntries(d);
+    const payload = {
+        timestamp : new Date().toLocaleString(),
+        name      : o.name,
+        phone     : o.phone,
+        email     : o.email,
+        service   : o.service,
+        vehicle_type : o.vehicle_type,
+        car_model : o.car_model,
+        date      : o.date,
+        time      : o.time,
+        notes     : o.notes
+    };
+    try{
+        const r = await fetch(sheetURL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+        if(!r.ok) throw new Error(r.status);
+    }catch(err){console.warn('SheetDB fail',err);}
+    alert('Booking sent! We’ll contact you within 24 h to confirm.');
+    f.reset(); window.scrollTo({top:0,behavior:'smooth'});
 }
-            // Get form data
-            const formData = new FormData(event.target);
-            const bookingData = Object.fromEntries(formData);
-            
-            // Here you would typically send this data to a server
-            console.log('Booking submitted:', bookingData);
-            
-            // Show success message
-            alert('Thank you for your booking! We will contact you within 24 hours to confirm your appointment.');
-            
-            // Reset form
-            event.target.reset();
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
 
-        // Close modals when clicking outside
-        window.onclick = function(event) {
-            const serviceModal = document.getElementById('serviceModal');
-            const imageModal = document.getElementById('imageModal');
-            
-            if (event.target === serviceModal) {
-                closeServiceModal();
-            }
-            if (event.target === imageModal) {
-                closeImageModal();
-            }
-        }
+/* ----------  SMALL UTILS  ---------- */
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+document.getElementById('date').min = new Date().toISOString().split('T')[0];
 
-        // Set minimum date to today
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
-
-        // Add animation to service cards on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
-                }
-            });
-        }, observerOptions);
-
-        // Observe service cards
-        document.querySelectorAll('.service-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Observe gallery items
-        document.querySelectorAll('.gallery-item').forEach(item => {
-            observer.observe(item);
-        });
-
-        // Before/After Slider
-        const slider = document.querySelector('.slider-container');
-        const divider = document.querySelector('.slider-divider');
-        const button = document.querySelector('.slider-button');
-        let isDragging = false;
-
-        function moveSlider(clientX) {
-            const rect = slider.getBoundingClientRect();
-            let x = clientX - rect.left;
-            if (x < 0) x = 0;
-            if (x > rect.width) x = rect.width;
-            
-            divider.style.left = x + 'px';
-            button.style.left = x + 'px';
-        }
-
-        divider.addEventListener('mousedown', () => isDragging = true);
-        document.addEventListener('mouseup', () => isDragging = false);
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging) moveSlider(e.clientX);
-        });
-
-        // Touch support
-        divider.addEventListener('touchstart', () => isDragging = true);
-        document.addEventListener('touchend', () => isDragging = false);
-        document.addEventListener('touchmove', (e) => {
-            if (isDragging) moveSlider(e.touches[0].clientX);
-        });
-        /* ===== SHEETDB SUBMISSION ===== */
-async function postToSheet(data){
-  const payload = {
-    timestamp : new Date().toLocaleString(),
-    name      : data.name,
-    phone     : data.phone,
-    email     : data.email,
-    service   : data.service,
-    vehicle_type : data['vehicle-type'],
-    car_model : data['car-model'],
-    date      : data.date,
-    time      : data.time,
-    notes     : data.notes
-  };
-
-  try{
-    const res = await fetch('https://sheetdb.io/api/v1/x82mtrw2snbo5', {  // ← swap in your key
-      method : 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body   : JSON.stringify(payload)
-    });
-    if(!res.ok) throw new Error(res.status);
-    console.log('SheetDB saved ✔');
-  }catch(err){
-    console.warn('SheetDB failed', err);
-    // keep going – customer already sees success
-  }
-}
-    </script>
+/* ----------  GIFT-CARD PLACEHOLDER  ---------- */
+function buyGiftCard(){alert('Gift-card purchase coming soon.\nCall (555) 123-4567 for now.');}
+</script>
 </body>
 </html>
